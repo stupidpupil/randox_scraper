@@ -1,5 +1,4 @@
 get_randox_product_details_from_url <- function(url){
-  product_html <- get_html_for_url(url)
 
   sampling_procedure <-
     dplyr::if_else(
