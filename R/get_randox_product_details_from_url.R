@@ -35,7 +35,8 @@ get_randox_product_details_from_url <- function(url){
   title <- product_html |>
     rvest::html_nodes(".product-page-heading") |>
     rvest::html_text2() |>
-    dplyr::first()
+    dplyr::first() |>
+    stringr::str_extract("^(.+?)( Blood)?( Test)?( Health Check)?$", group=1)
 
   title <- paste0(title, dplyr::if_else(
       sampling_procedure == "venous",
